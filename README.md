@@ -5,18 +5,21 @@ A finite-precision computational audit of a primitive resolvent S-fraction progr
 This repository studies the completed Riemann (\Xi)-function through the normalized critical-line transform
 
 [
+```math
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)}
 ]
 
 and its primitive positive resolvent
 
 [
+```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}.
 ]
 
 The goal is to test whether (R(u)) behaves numerically like a positive-growth Markov/Stieltjes/S-fraction object:
 
 [
+```math
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0.
 ]
