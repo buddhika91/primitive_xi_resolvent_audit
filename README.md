@@ -12,20 +12,20 @@ This repository studies the completed Riemann (\Xi)-function through the normali
 
 and its primitive positive resolvent
 
-[
+
 ```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}.
 ```
-```
+
 
 The goal is to test whether (R(u)) behaves numerically like a positive-growth Markov/Stieltjes/S-fraction object:
 
-[
+
 ```math
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0.
 ```
-```
+
 
 If such a representation could be proved analytically and globally without assuming the Riemann Hypothesis, it would force the poles of (R), hence the zeros of (\Phi), to lie on the positive real (u)-axis. This would correspond to zeros of (\Xi(s)) lying on the critical line.
 
