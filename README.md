@@ -4,11 +4,11 @@ A finite-precision computational audit of a primitive resolvent S-fraction progr
 
 This repository studies the completed Riemann (\Xi)-function through the normalized critical-line transform
 
-[
+
 ```math
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)}
 ```
-]
+
 
 and its primitive positive resolvent
 
@@ -16,7 +16,7 @@ and its primitive positive resolvent
 ```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}.
 ```
-]
+```
 
 The goal is to test whether (R(u)) behaves numerically like a positive-growth Markov/Stieltjes/S-fraction object:
 
@@ -25,7 +25,7 @@ The goal is to test whether (R(u)) behaves numerically like a positive-growth Ma
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0.
 ```
-]
+```
 
 If such a representation could be proved analytically and globally without assuming the Riemann Hypothesis, it would force the poles of (R), hence the zeros of (\Phi), to lie on the positive real (u)-axis. This would correspond to zeros of (\Xi(s)) lying on the critical line.
 
@@ -37,51 +37,51 @@ This repository does **not** claim to prove the Riemann Hypothesis. It provides 
 
 Let
 
-[
+```math
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)}.
-]
+```
 
 If the Riemann Hypothesis is true, then formally
 
-[
+```math
 \Phi(u)=\prod_n\left(1-\frac{u}{\gamma_n^2}\right),
-]
+```
 
 where the nontrivial zeros of (\zeta(s)) are
 
-[
+```math
 \rho_n=\frac12\pm i\gamma_n.
-]
+```
 
 Taking the logarithmic derivative gives
 
-[
+```math
 \frac{\Phi'(u)}{\Phi(u)}
 ========================
 
 -\sum_n\frac{1}{\gamma_n^2-u}.
-]
+```
 
 Therefore,
 
-[
+```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}
 ==============================
 
 \sum_n\frac{1}{\gamma_n^2-u}.
-]
+```
 
 Equivalently, with
 
-[
+```math
 x_n=\frac1{\gamma_n^2}>0,
-]
+```
 
 we have
 
-[
+```math
 R(u)=\sum_n\frac{x_n}{1-u x_n}.
-]
+```
 
 This is the positive-growth Markov form. The computational question is whether this structure appears directly in the Taylor and S-fraction data of (R(u)).
 
@@ -95,28 +95,28 @@ The script tests four positivity gates.
 
 The series
 
-[
+```math
 R(u)=r_0+r_1u+r_2u^2+\cdots
-]
+```
 
 is computed, and the script checks whether
 
-[
+```math
 r_n\ge0.
-]
+```
 
 If
 
-[
+```math
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0,
-]
+```
 
 then
 
-[
+```math
 r_n=\int_0^\infty x^n,d\pi(x)\ge0.
-]
+```
 
 ---
 
@@ -124,15 +124,15 @@ r_n=\int_0^\infty x^n,d\pi(x)\ge0.
 
 The script checks the Hankel determinants
 
-[
-\det[r_{i+j}]_{i,j=0}^{N}\ge0
-]
+```math
+\det[r_{i+j}```_{i,j=0}^{N}\ge0
+```
 
 and
 
-[
-\det[r_{i+j+1}]_{i,j=0}^{N}\ge0.
-]
+```math
+\det[r_{i+j+1}```_{i,j=0}^{N}\ge0.
+```
 
 These are necessary positivity conditions for ((r_n)) to be a Stieltjes moment sequence.
 
@@ -142,33 +142,33 @@ These are necessary positivity conditions for ((r_n)) to be a Stieltjes moment s
 
 Starting with
 
-[
+```math
 F_0(u)=R(u),
-]
+```
 
 the script recursively defines
 
-[
+```math
 a_n=F_n(0),
-]
+```
 
-[
+```math
 F_{n+1}(u)=\frac{1-a_n/F_n(u)}{u}.
-]
+```
 
 The test checks whether
 
-[
+```math
 a_n>0
-]
+```
 
 for all computed depths.
 
 This is the positive-growth S-fraction orientation appropriate for kernels of the form
 
-[
+```math
 \frac{1}{1-ux}.
-]
+```
 
 ---
 
@@ -176,17 +176,17 @@ This is the positive-growth S-fraction orientation appropriate for kernels of th
 
 For a positive-growth Markov transform,
 
-[
+```math
 R(z)=\int_0^\infty \frac{d\pi(x)}{1-zx},
-]
+```
 
 one expects
 
-[
+```math
 \operatorname{Im}z>0
 \quad\Longrightarrow\quad
 \operatorname{Im}R(z)\ge0.
-]
+```
 
 The script optionally samples the upper half-plane and checks this sign numerically.
 
@@ -196,9 +196,9 @@ The script optionally samples the upper half-plane and checks this sign numerica
 
 Earlier tests on the curvature-rise quotient
 
-[
+```math
 \frac{K(\sqrt{u})-K(0)}{u}
-]
+```
 
 showed positive Taylor coefficients but failed Hankel positivity and direct S-fraction tail stripping.
 
@@ -206,55 +206,55 @@ This suggests that the curvature quotient is not the primitive S-fraction object
 
 The successful object is instead
 
-[
+```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}.
-]
+```
 
 Thus the proposed hierarchy is:
 
-[
+```math
 \Phi(u)
-]
+```
 
-[
+```math
 \Downarrow
-]
+```
 
-[
+```math
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}
-]
+```
 
-[
+```math
 \Downarrow
-]
+```
 
-[
+```math
 \text{positive Taylor coefficients}
-]
+```
 
-[
+```math
 \Downarrow
-]
+```
 
-[
+```math
 \text{Hankel moment positivity}
-]
+```
 
-[
+```math
 \Downarrow
-]
+```
 
-[
+```math
 \text{positive S-fraction tails}
-]
+```
 
-[
+```math
 \Downarrow
-]
+```
 
-[
+```math
 \text{positive spectral recursion}.
-]
+```
 
 The curvature floor, if true, should be viewed as downstream from this primitive resolvent structure.
 
@@ -340,7 +340,7 @@ This supports the conjecture that the primitive positive resolvent
 
 [
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}
-]
+```
 
 behaves numerically like a positive-growth Markov/S-fraction object.
 
@@ -356,46 +356,46 @@ Let
 
 [
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)}
-]
+```
 
 and
 
 [
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}.
-]
+```
 
 Then
 
 [
 R(u)
-]
+```
 
 admits a positive-growth Markov representation
 
 [
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0.
-]
+```
 
 Equivalently, the coefficients
 
 [
 R(u)=\sum_{n\ge0}r_nu^n
-]
+```
 
 form a positive Stieltjes moment sequence:
 
 [
 r_n\ge0,
-]
+```
 
 [
-\det[r_{i+j}]_{i,j=0}^{N}\ge0,
-]
+\det[r_{i+j}```_{i,j=0}^{N}\ge0,
+```
 
 [
-\det[r_{i+j+1}]_{i,j=0}^{N}\ge0
-]
+\det[r_{i+j+1}```_{i,j=0}^{N}\ge0
+```
 
 for every (N\ge0).
 
@@ -405,13 +405,13 @@ Equivalently, the positive-growth S-fraction tail coefficients generated by
 F_{n+1}(u)=\frac{1-a_n/F_n(u)}{u},
 \qquad a_n=F_n(0),
 \qquad F_0=R,
-]
+```
 
 satisfy
 
 [
 a_n>0
-]
+```
 
 for every (n\ge0).
 
@@ -424,7 +424,7 @@ If the global representation
 [
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0
-]
+```
 
 could be proved without assuming RH, then the singularities of (R) would lie on the positive real (u)-axis.
 
@@ -432,13 +432,13 @@ But
 
 [
 R(u)=-\frac{\Phi'(u)}{\Phi(u)}
-]
+```
 
 has singularities precisely where
 
 [
 \Phi(u)=0.
-]
+```
 
 Therefore, such a theorem would force the zeros of (\Phi) to lie on the positive real (u)-axis.
 
@@ -446,19 +446,19 @@ Since
 
 [
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)},
-]
+```
 
 a positive real zero
 
 [
 u=\gamma^2>0
-]
+```
 
 corresponds to a zero
 
 [
 s=\frac12+i\gamma
-]
+```
 
 of (\Xi(s)).
 
@@ -466,31 +466,31 @@ Thus the proof path would be:
 
 [
 R(u)\text{ has a global positive Markov/S-fraction representation}
-]
+```
 
 [
 \Longrightarrow
-]
+```
 
 [
 \Phi(u)\text{ has only positive real zeros}
-]
+```
 
 [
 \Longrightarrow
-]
+```
 
 [
 \Xi(s)\text{ has zeros only on } \operatorname{Re}(s)=1/2
-]
+```
 
 [
 \Longrightarrow
-]
+```
 
 [
 \text{RH}.
-]
+```
 
 ---
 
@@ -505,14 +505,14 @@ The missing analytic step is:
 [
 R(u)=-\frac{d}{du}\log
 \frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)}
-]
+```
 
 has a global positive Markov/S-fraction representation
 
 [
 R(u)=\int_0^\infty \frac{d\pi(x)}{1-ux},
 \qquad d\pi(x)\ge0
-]
+```
 
 without assuming the Riemann Hypothesis.
 
@@ -537,25 +537,25 @@ The potentially nonstandard aspect of this repository is the exact computational
 
 [
 \Phi(u)=\frac{\Xi(1/2+i\sqrt{u})}{\Xi(1/2)},
-]
+```
 
 [
 R(u)=-\frac{\Phi'(u)}{\Phi(u)},
-]
+```
 
 together with the simultaneous audit of:
 
 [
 r_n>0,
-]
+```
 
 [
-\det[r_{i+j}]>0,
-]
+\det[r_{i+j}```>0,
+```
 
 [
-\det[r_{i+j+1}]>0,
-]
+\det[r_{i+j+1}```>0,
+```
 
 positive S-fraction tail coefficients, and Pick positivity.
 
@@ -584,13 +584,13 @@ The script computes Taylor coefficients using Cauchy coefficient extraction arou
 
 [
 \Phi(u)
-]
+```
 
 and formally computes
 
 [
 R(u)=-\Phi'(u)/\Phi(u).
-]
+```
 
 All arithmetic is performed using `mpmath` at configurable precision.
 
